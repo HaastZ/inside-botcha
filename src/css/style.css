@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(151, 151, 151);
+    padding: 30px;
+    width: 500px;
+    height: 500px;
+    background: rgb(74,74,74);
+    background: linear-gradient(90deg, rgba(74,74,74,1) 0%, rgba(154,154,154,1) 76%, rgba(145,145,145,0.5130427170868348) 100%, rgba(0,212,255,1) 100%);
+    border-radius: 0 10px 10px 0;
+}
+
+.main {
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.imagem-lado .img-lado {
+    width: 600px;
+    height: 560px;
+    border-radius: 20px 0 0 10px;
+}
+
+.formulario .criar-conta {
+    height: 100px;
+}
+
+.input {
+    height: 30px;
+    width: 200px;
+    padding: 4px;
+}
+
+.botao {
+    width: 211px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgb(80, 80, 80);
+    color: #ffffff;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+.botao:hover {
+    background-color: rgb(112, 112, 112);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.imagem-fundo {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(27, 27, 27);
+    filter: blur(5px);
+}
+
+.msg-senha {
+    margin-top: 4px;
+}
+
+.logo-lado {
+    display: flex;
+    margin-right: 3rem;
+}
+
+.logo-lado .criar-conta {
+    display: flex;
+    align-items: center;
+}
+
+.logo-lado img {
+    width: 100px;
+}

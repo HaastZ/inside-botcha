@@ -1,0 +1,23 @@
+{
+  "name": "insidebotcha",
+  "version": "1.0.0",
+  "description": "trabalho para a faculdade",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vinicius",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaastZ/InsideBotcha.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HaastZ/InsideBotcha/issues"
+  },
+  "homepage": "https://github.com/HaastZ/InsideBotcha#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
