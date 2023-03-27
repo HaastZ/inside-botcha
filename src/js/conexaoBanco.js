@@ -1,15 +1,21 @@
-const sql = require('mssql');
+const sql = require('mssql')
 
 const config = {
-  user: 'username',
-  password: 'password',
-  server: 'server_name',
-  database: 'database_name',
-};
+    integratedSecurity: true,
+    server: 'DESKTOP-MUG77BH\SQLEXPRESS',
+    database: 'TIAW.dbo',
+    options: {
+         encrypt: true // caso o servidor esteja configurado para usar SSL/TLS
+    }
+}
 
-sql.connect(config, (err) => {
-  if (err) console.log(err);
-  else console.log('Database connection successful.');
-});
+async function connect() {
+  try {
+    await sql.connect(config)
+    console.log('Conectado ao banco de dados')
+  } catch (err) {
+    console.error('Erro ao conectar ao banco de dados', err)
+  }
+}
 
-module.exports = sql;
+connect()

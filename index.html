@@ -31,27 +31,30 @@
         </div>
         <form action="">
           <p>Nome*</p>
-          <input class="input" type="text" placeholder="Seu nome" />
+          <input class="input" type="text" id="nome" placeholder="Seu nome" />
           <br />
           <br />
           <p>E-mail*</p>
-          <input class="input" type="email" placeholder="Seu e-mail" />
+          <input class="input" type="email" id="e-mail" placeholder="Seu e-mail" />
           <br />
           <br />
           <p>Senha*</p>
-          <input class="input" type="password" placeholder="***********" />
+          <input class="input" type="password" id="senha" placeholder="***********" />
+          <img onclick="clicarNoOlho()" id="eyeSvg2" width="20px" src="./img/olho-aberto.png" alt="olho aberto">
           <br />
           <br />
           <p>Confirmar Senha*</p>
-          <input class="input" type="password" placeholder="***********" />
+          <input class="input" type="password" id="confirmar-senha" placeholder="***********" />
+          <img onclick="clicarNoOlho()" id="eyeSvg" width="20px" src="./img/olho-aberto.png" alt="olho aberto">
           <p class="msg-senha"><strong>A senha precisa ter no mínimo 6 caracteres.</strong></p>
           <p>Já tem conta? <a href="./login.html">Fazer login</a></p>
           <br />
           <br />
-          <button class="botao">Continuar</button>
+          <button id="botao" class="botao">Continuar</button>
         </form>
       </div>
     </main>
-    <script src="./server.js"></script>
+    <!-- <script src="./src/js/cadastro.js"></script> -->
+    <script src="./src/js/abrirFecharCadastro.js"></script>
   </body>
 </html>
