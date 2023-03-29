@@ -1,3 +1,8 @@
+/* 
+Este arquivo serve apenas para abrir e fechar os olhos na página de login
+
+*/
+
 const senha = document.getElementById('senha');
 const olho = document.getElementById('eyeSvg');
 

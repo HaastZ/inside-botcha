@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 9000;
+const port = 9003;
 
 /* 
 Para iniciar o servidor, digite no terminal do windows/cmd/prompt de comando o seguinte: cd  (escreva o diretório do trabalho onde está o arquivo server.js) após isso digite: node server.js
@@ -56,10 +56,11 @@ app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
 
+// Conexão com o banco de dados
 
 const sql = require('mssql/msnodesqlv8');
 
-var config = {
+const config = {
   server: 'DESKTOP-MUG77BH\\SQLEXPRESS',
   database: 'TIAW',
   driver: 'msnodesqlv8',
@@ -75,6 +76,7 @@ sql.connect(config, function(err){
   else{
     var request = new sql.Request();
     request.query("select * from USUARIO", function(err, records){
+      //Colocar ações do banco aqui
       if(err){
         console.log('Erro ao fazer a query no bando de dados: ' + err);
       }

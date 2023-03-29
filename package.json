@@ -2,7 +2,7 @@
   "name": "insidebotcha",
   "version": "1.0.0",
   "description": "trabalho para a faculdade",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
