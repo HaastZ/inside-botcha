@@ -36,6 +36,16 @@ body {
     gap: 10px;
 }
 
+.infos .perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infos .perfil h4 {
+    color: rgb(189, 189, 189);
+}
+
 .infos img {
     width: 60px;
     height: 60px;
