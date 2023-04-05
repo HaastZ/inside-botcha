@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const port = 2020;
+const conexao = require('./src/js/conexao.js');
 
 /* 
 Para iniciar o servidor, digite no terminal do windows/cmd/prompt de comando o seguinte: cd  (escreva o diretório do trabalho onde está o arquivo server.js) após isso digite: node server.js
@@ -61,37 +62,36 @@ app.listen(port, () => {
 
 // Conexão com o banco de dados
 
-const con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "123456",
-  database: 'tiaw',
-});
+// const con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "123456",
+//   database: 'tiaw',
+// });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Conectado ao banco de dados!");
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Conectado ao banco de dados!");
+// });
 
-// Define a rota para receber os dados do formulário
+// // Define a rota para receber os dados do formulário
 
 
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
-app.post('/index.html', function(req, res) {
+// app.post('/index.html', function(req, res) {
 
-    const id = `SELECT idUsuario FROM usuario`;
-    const idUsuario = 4;
-    const nome = req.body.nome;
-    const email = req.body.email;
-    const senha = req.body.senha;
+//     const id = `SELECT idUsuario FROM usuario`;
+//     const idUsuario = 4;
+//     const nome = req.body.nome;
+//     const email = req.body.email;
+//     const senha = req.body.senha;
 
-  const sql = `INSERT INTO usuario (idUsuario, nome, email, senha) VALUES ('${idUsuario}', '${nome}', '${email}', '${senha}')`;
+//   const sql = `INSERT INTO usuario (idUsuario, nome, email, senha) VALUES ('${idUsuario}', '${nome}', '${email}', '${senha}')`;
 
-  con.query(sql, function(err, result) {
-    if (err) throw err;
-    console.log("Usuário cadastrado com sucesso!");
-  });
+//   con.query(sql, function(err, result) {
+//     if (err) throw err;
+//   });
 
-  res.redirect('/login.html');
-});
+//   res.redirect('/login.html');
+// });
