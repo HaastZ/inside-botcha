@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 9003;
+const mysql = require('mysql');
+const port = 2020;
 
 /* 
 Para iniciar o servidor, digite no terminal do windows/cmd/prompt de comando o seguinte: cd  (escreva o diretório do trabalho onde está o arquivo server.js) após isso digite: node server.js
+
+para iniciar o servidor atualizando automaticamente conforme você faz alteração usa-se: nodemon server.js
 
 assim vai iniciar o servidor em um ambiente local
 */
@@ -58,31 +61,37 @@ app.listen(port, () => {
 
 // Conexão com o banco de dados
 
-const sql = require('mssql/msnodesqlv8');
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "123456",
+  database: 'tiaw',
+});
 
-const config = {
-  server: 'DESKTOP-MUG77BH\\SQLEXPRESS',
-  database: 'TIAW',
-  driver: 'msnodesqlv8',
-  options:{
-    trustedConnection: true
-  }
-};
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Conectado ao banco de dados!");
+});
 
-sql.connect(config, function(err){
-  if(err){
-    console.log('Erro ao conectar com o banco de dados' + err); 
-  }
-  else{
-    var request = new sql.Request();
-    request.query("select * from USUARIO", function(err, records){
-      //Colocar ações do banco aqui
-      if(err){
-        console.log('Erro ao fazer a query no bando de dados: ' + err);
-      }
-      else{
-        console.log(records);
-      }
-    })
-  }
-})
+// Define a rota para receber os dados do formulário
+
+
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/index.html', function(req, res) {
+
+    const id = `SELECT idUsuario FROM usuario`;
+    const idUsuario = 4;
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const senha = req.body.senha;
+
+  const sql = `INSERT INTO usuario (idUsuario, nome, email, senha) VALUES ('${idUsuario}', '${nome}', '${email}', '${senha}')`;
+
+  con.query(sql, function(err, result) {
+    if (err) throw err;
+    console.log("Usuário cadastrado com sucesso!");
+  });
+
+  res.redirect('/login.html');
+});
