@@ -131,7 +131,7 @@ app.post('/login.html', function(req, res) {
     res.redirect('/home.html');
     } else {
       // Credenciais inválidas, redireciona de volta para a página de login
-      res.redirect('/home.html');
+      res.redirect('/login.html');
   }
 });
 });
