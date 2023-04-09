@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
-const port = 9000;
+const port = 8080;
 //const conexao = require('./src/js/conexao.js');
 
-/* 
+/* antes de selecionar a tabela no banco de dados, primeiro escrever: use tiaw;  para selecionar o banco de dados tiaw, e depois a consulta SQL 
+
 Para iniciar o servidor, digite no terminal do windows/cmd/prompt de comando o seguinte: cd  (escreva o diretório do trabalho onde está o arquivo server.js) após isso digite: node server.js
 
 para iniciar o servidor atualizando automaticamente conforme você faz alteração usa-se: nodemon server.js
@@ -68,8 +69,13 @@ app.get('/src/js/abrirFecharCadastro.js', (req, res) => {
   res.sendFile(__dirname + '/src/js/abrirFecharCadastro.js');
 });
 
+
 app.get('/src/js/abrirFecharLogin.js', (req, res) => {
   res.sendFile(__dirname + '/src/js/abrirFecharLogin.js');
+});
+
+app.get('/src/js/home.js', (req, res) => {
+  res.sendFile(__dirname + '/src/js/home.js');
 });
 
 app.listen(port, () => {
@@ -128,7 +134,8 @@ app.post('/login.html', function(req, res) {
 
     if (result.length > 0) {
       // Login bem-sucedido, redireciona para a página home
-    res.redirect('/home.html');
+    const nomeUsuario = result[0].nome;
+    res.redirect(`/home.html?nome/${nomeUsuario}`);
     } else {
       // Credenciais inválidas, redireciona de volta para a página de login
       res.redirect('/login.html');

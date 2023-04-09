@@ -49,19 +49,20 @@ function conexao() {
     const email = req.body.email;
     const senha = req.body.senha;
   
-    const sql = `SELECT email = ${email}, senha = ${senha} from usuario`;
+    const sql = `SELECT * from usuario WHERE email = '${email}' AND senha = '${senha}'`;
   
     con.query(sql, function(err, result) {
       if (err) throw err;
   
       if (result.length > 0) {
         // Login bem-sucedido, redireciona para a página home
-        res.redirect('/home.html');
+      const nomeUsuario = result[0].nome;
+      res.redirect(`/home.html?nome/${nomeUsuario}`);
       } else {
         // Credenciais inválidas, redireciona de volta para a página de login
         res.redirect('/login.html');
-      }
-    });
+    }
+  });
   });
 }
 
