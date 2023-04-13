@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const port = 8080;
+
 //const conexao = require('./src/js/conexao.js');
 
 /* antes de selecionar a tabela no banco de dados, primeiro escrever: use tiaw;  para selecionar o banco de dados tiaw, e depois a consulta SQL 
@@ -58,11 +59,24 @@ app.get('/home.html', (req, res) => {
   res.sendFile(__dirname + '/home.html');
 });
 
+app.get('/perfil.html', (req, res) => {
+  res.sendFile(__dirname + '/perfil.html');
+});
+
 app.get('/src/css/style.css', (req, res) => {
   res.sendFile(__dirname + '/src/css/style.css');
 });
+
 app.get('/src/css/home.css', (req, res) => {
   res.sendFile(__dirname + '/src/css/home.css');
+});
+
+app.get('/src/css/navbar.css', (req, res) => {
+  res.sendFile(__dirname + '/src/css/navbar.css');
+});
+
+app.get('/src/css/perfil.css', (req, res) => {
+  res.sendFile(__dirname + '/src/css/perfil.css');
 });
 
 app.get('/src/js/abrirFecharCadastro.js', (req, res) => {
@@ -76,6 +90,10 @@ app.get('/src/js/abrirFecharLogin.js', (req, res) => {
 
 app.get('/src/js/home.js', (req, res) => {
   res.sendFile(__dirname + '/src/js/home.js');
+});
+
+app.get('/src/js/perfil.js', (req, res) => {
+  res.sendFile(__dirname + '/src/js/perfil.js');
 });
 
 app.listen(port, () => {
@@ -107,6 +125,10 @@ app.post('/index.html', function(req, res) {
   const email = req.body.email;
   const senha = req.body.senha;
 
+  if(!nome || !email || !senha){
+    return;
+  }
+
   // obter o último ID inserido e adicionar mais 1
   con.query('SELECT MAX(idUsuario) + 1 as nextId FROM usuario', function(err, result) {
       if (err) throw err;
@@ -131,11 +153,13 @@ app.post('/login.html', function(req, res) {
 
   con.query(sql, function(err, result) {
     if (err) throw err;
-
+    
     if (result.length > 0) {
       // Login bem-sucedido, redireciona para a página home
     const nomeUsuario = result[0].nome;
-    res.redirect(`/home.html?nome/${nomeUsuario}`);
+    const email = result[0].email;
+    const senha = result[0].senha;
+    res.redirect(`/home.html?nome/${nomeUsuario}/${email}/${senha}`);
     } else {
       // Credenciais inválidas, redireciona de volta para a página de login
       res.redirect('/login.html');

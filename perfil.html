@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/fav-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/perfil.css">
+    <link rel="stylesheet" href="./src/css/navbar.css">
+    <title>Inside Botcha - Perfil de Usuario</title>
+</head>
+<body>
+    <nav class="navBar">
+        <div class="nome-logo">
+            <a href="#"><img id="homeURL" src="./img/fav-icon.png" alt="Logo do site"></a>
+            <h1>Inside Botcha</h1>
+        </div>
+        <div class="infos">
+            <!-- se colocar algo aqui fica do lado do perfil certinho-->
+            <div class="perfil">
+                <a><img id="atualizaURL" src="./img/perfil-icon.png" alt=""></a>
+                <h4 id="usuario"></h4>
+            </div>
+        </div>
+    </nav>
+    <div class="container-perfil">
+        <div class="img-perfil">
+            <img src="./img/perfil-icon.png" width="400px" alt="">
+        </div>
+            <p id="nome-usuario" class="dados"></p>
+            <p id="email-usuario" class="dados"></p>
+            <p id="senha-usuario" class="dados"></p>
+    </div>
+    <h1 class="editar-perfil">EDITAR PERFIL</h1>
+    <div class="container-perfil editar">
+        <form action="">
+            <p class="dados">Novo Nome:</p>
+            <input type="text" placeholder="Nome de Usuario">
+            <p class="dados">Novo Email:</p>
+            <input type="email" placeholder="Email">
+            <p class="dados">Nova Senha:</p>
+            <div class="senha">
+                <input class="input" type="password" name="senha" id="senha" placeholder="Senha" />
+                <img onclick="clicarNoOlho()" id="eyeSvg" src="./img/olho-aberto.png" alt="olho aberto">
+            </div>
+            <input type="submit" id="btn-editar" class="botao" value="Editar">
+        </form>
+    </div>
+    <script src="./src/js/abrirFecharLogin.js"></script>
+    <script src="./src/js/perfil.js"></script>
+</body>
+</html>

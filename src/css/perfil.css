@@ -1,0 +1,59 @@
+body {
+    background: #181818;
+}
+
+.container-perfil {
+    background-color: rgba(0, 71, 153, 0.3);
+    color: rgb(255, 255, 255);
+    width: 90rem;
+    padding: 40px;
+    border-radius: 50px;
+    margin: 20px;
+}
+
+.container-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container-perfil .dados {
+    font-size: 33px;
+}
+
+.editar-perfil {
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+
+.container-perfil.editar form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-perfil.editar form .senha img {
+    width: 30px;
+}
+
+.container-perfil input {
+    width: 20rem;
+    height: 1.5rem;
+    padding: 4px;
+}
+
+.container-perfil form .botao {
+    width: 300px;
+    height: 40px;
+    border-radius: 30px;
+    margin: 10px;
+    background-color: rgba(0, 119, 255, 0.3);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.container-perfil form .botao:hover {
+    background-color: rgba(1, 88, 187, 0.3);
+}

@@ -7,51 +7,6 @@ body {
     margin: 0;
 }
 
-.navBar {
-    background-color: rgb(61, 61, 61);
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-}
-
-.nome-logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.nome-logo h1 {
-    color: rgb(218, 218, 218);
-}
-
-.nome-logo img {
-    width: 60px;
-    height: 60px;
-}
-
-.infos {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.infos .perfil {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.infos .perfil h4 {
-    color: rgb(189, 189, 189);
-}
-
-.infos img {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-}
-
 .img-site {
     display: flex;
     justify-content: center;
