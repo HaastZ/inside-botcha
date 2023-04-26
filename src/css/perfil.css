@@ -5,7 +5,7 @@ body {
 .container-perfil {
     background-color: rgba(0, 71, 153, 0.3);
     color: rgb(255, 255, 255);
-    width: 90rem;
+    width: 90%;
     padding: 40px;
     border-radius: 50px;
     margin: 20px;
@@ -55,5 +55,25 @@ body {
 }
 
 .container-perfil form .botao:hover {
+    background-color: rgba(1, 88, 187, 0.3);
+}
+
+.container-perfil .sair-da-conta {
+    width: 200px;
+    height: 500px;
+    display: flex;
+    align-items: end;
+}
+
+.container-perfil .sair-da-conta .botao-sair {
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: rgba(0, 119, 255, 0.3);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.container-perfil .sair-da-conta .botao-sair:hover {
     background-color: rgba(1, 88, 187, 0.3);
 }

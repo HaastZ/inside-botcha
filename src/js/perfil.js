@@ -1,13 +1,13 @@
 const caminho = window.location.search;
 const partesCaminho = caminho.split('/');
-console.log(partesCaminho);
 const nomeHTML = document.getElementById('nome-usuario');
 const emailHTML = document.getElementById('email-usuario');
 const senhaHTML = document.getElementById('senha-usuario');
 const elementoNomeDeUsuario = document.getElementById('usuario');
 const nomeDeUsuario = partesCaminho[1];
 const emailUsuario = partesCaminho[2];
-const senhaUsuario = partesCaminho[partesCaminho.length - 1];
+const senhaUsuario = partesCaminho[3];
+const idUsuario = partesCaminho[4];
 const homeURL = document.getElementById('homeURL');
 const atualizaURL = document.getElementById('atualizaURL');
 elementoNomeDeUsuario.innerHTML = `
@@ -29,6 +29,6 @@ homeURL.addEventListener('click', ()=>{
 })
 
 atualizaURL.addEventListener('click', ()=>{
-    const urlDestino = `./perfil.html?/${nomeDeUsuario}/${emailUsuario}/${senhaUsuario}`;
+    const urlDestino = `./perfil.html?/${nomeDeUsuario}/${emailUsuario}/${senhaUsuario}/${idUsuario}`;
     window.location = urlDestino;
 })

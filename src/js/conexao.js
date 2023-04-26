@@ -3,10 +3,6 @@ const app = express();
 const mysql = require('mysql');
 
 
-app.get('/index.html', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
 function conexao() {
   const con = mysql.createConnection({
     host: "localhost",
@@ -65,7 +61,6 @@ function conexao() {
   });
   });
 }
-
 
 
 module.exports = {

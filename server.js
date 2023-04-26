@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
 const port = 8080;
 
+app.use(cors());
 //const conexao = require('./src/js/conexao.js');
 
 /* antes de selecionar a tabela no banco de dados, primeiro escrever: use tiaw;  para selecionar o banco de dados tiaw, e depois a consulta SQL 
@@ -159,10 +161,38 @@ app.post('/login.html', function(req, res) {
     const nomeUsuario = result[0].nome;
     const email = result[0].email;
     const senha = result[0].senha;
-    res.redirect(`/home.html?nome/${nomeUsuario}/${email}/${senha}`);
+    const id = result[0].idUsuario;
+    res.redirect(`/home.html?nome/${nomeUsuario}/${email}/${senha}/${id}`);
     } else {
       // Credenciais inválidas, redireciona de volta para a página de login
       res.redirect('/login.html');
   }
 });
+});
+
+app.post('/perfil.html', (req, res) => {
+  const {nome, email, senha } = req.body;
+
+  // Verifica quais dados devem ser atualizados
+  let camposAtualizados = '';
+  if (nome) {
+    camposAtualizados += `nome='${nome}', `;
+  }
+  if (email) {
+    camposAtualizados += `email='${email}', `;
+  }
+  if (senha) {
+    camposAtualizados += `senha='${senha}', `;
+  }
+
+  // Atualiza os dados do usuário no banco de dados
+  const sql = `UPDATE usuario SET ${camposAtualizados} WHERE idUsuario=${id}`;
+  con.query(sql, (erro, resultado) => {
+    if (erro) {
+      console.log('Erro ao atualizar dados do usuário: ', erro);
+      res.status(500).send('Erro ao atualizar dados do usuário');
+    } else {
+      console.log('Dados do usuário atualizados com sucesso');
+    }
+  });
 });
