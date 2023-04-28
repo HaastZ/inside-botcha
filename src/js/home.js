@@ -23,13 +23,13 @@ const url = 'https://api.steampowered.com/ISteamApps/GetAppList/v2/';
 const apiKey = '14549840C8937416FF2DC4B3C3CAF9C6';
 const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 const categories = {
-  'Ação': 'Action',
+  'FPS': 'FPS',
   'Aventura': 'Adventure',
   'RPG': 'RPG',
-  'Estratégia': 'Strategy',
-  'Simulação': 'Simulation',
-  'Casual': 'Casual',
-  'Animação': 'Animation',
+  'Estrategia': 'Strategy',
+  'Simulacao': 'Simulation',
+  'Arcade': 'Arcade',
+  'Animacao': 'Animation',
   'Corrida': 'Race'
 };
 
@@ -83,7 +83,7 @@ fetch(`${proxyUrl}${url}?key=${apiKey}`)
           <div class="card">
             <img src="${imageUrl}" alt="">
             <h1>${category}</h1>
-            <a href="#"><button class="botao">Ver Jogos</button></a>
+            <a href="${category}.html?/${nomeDeUsuario}/${email}/${senha}"><button class="botao">Ver Jogos</button></a>
           </div>
           `;
         })

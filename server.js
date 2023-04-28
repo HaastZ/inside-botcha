@@ -65,6 +65,38 @@ app.get('/perfil.html', (req, res) => {
   res.sendFile(__dirname + '/perfil.html');
 });
 
+app.get('/Aventura.html', (req, res) => {
+  res.sendFile(__dirname + '/Aventura.html');
+});
+
+app.get('/RPG.html', (req, res) => {
+  res.sendFile(__dirname + '/RPG.html');
+});
+
+app.get('/Arcade.html', (req, res) => {
+  res.sendFile(__dirname + '/Arcade.html');
+});
+
+app.get('/FPS.html', (req, res) => {
+  res.sendFile(__dirname + '/FPS.html');
+});
+
+app.get('/Corrida.html', (req, res) => {
+  res.sendFile(__dirname + '/Corrida.html');
+});
+
+app.get('/Simulacao.html', (req, res) => {
+  res.sendFile(__dirname + '/Simulacao.html');
+});
+
+app.get('/Estrategia.html', (req, res) => {
+  res.sendFile(__dirname + '/Estrategia.html');
+});
+
+app.get('/Animacao.html', (req, res) => {
+  res.sendFile(__dirname + '/Animacao.html');
+});
+
 app.get('/src/css/style.css', (req, res) => {
   res.sendFile(__dirname + '/src/css/style.css');
 });
@@ -81,10 +113,13 @@ app.get('/src/css/perfil.css', (req, res) => {
   res.sendFile(__dirname + '/src/css/perfil.css');
 });
 
+app.get('/src/css/categorias.css', (req, res) => {
+  res.sendFile(__dirname + '/src/css/categorias.css');
+});
+
 app.get('/src/js/abrirFecharCadastro.js', (req, res) => {
   res.sendFile(__dirname + '/src/js/abrirFecharCadastro.js');
 });
-
 
 app.get('/src/js/abrirFecharLogin.js', (req, res) => {
   res.sendFile(__dirname + '/src/js/abrirFecharLogin.js');
@@ -96,6 +131,10 @@ app.get('/src/js/home.js', (req, res) => {
 
 app.get('/src/js/perfil.js', (req, res) => {
   res.sendFile(__dirname + '/src/js/perfil.js');
+});
+
+app.get('/src/js/categorias.js', (req, res) => {
+  res.sendFile(__dirname + '/src/js/categorias.js');
 });
 
 app.listen(port, () => {

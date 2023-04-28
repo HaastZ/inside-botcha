@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/fav-icon.png" type="image/x-icon">
+    <title>Inside Botcha - Categoria: Animação</title>
+    <link rel="stylesheet" href="./src/css/navbar.css">
+    <link rel="stylesheet" href="./src/css/categorias.css">
+</head>
+<body>
+    <nav class="navBar">
+        <div class="nome-logo">
+            <img id="pagina-principal" src="./img/fav-icon.png" alt="Logo do site">
+            <h1>Inside Botcha</h1>
+        </div>
+        <div class="infos">
+            <!-- se colocar algo aqui fica do lado do perfil certinho-->
+            <div class="perfil">
+                <img id="pagina-perfil" src="./img/perfil-icon.png" alt="">
+                <h4 id="usuario"></h4>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="container">
+        <!-- <div class="card">
+            <img src="./img/the-game-awards-jogo-do-ano-goty.jpg" alt="">
+            <h3>Nome do jogo</h3>
+            <h4>Preço:</h4>
+        </div> -->
+        <script src="./src/js/categorias.js"></script>
+        <script>
+            getPopularGamesByCategory('Animacao');
+        </script>
+</body>
+</html>
