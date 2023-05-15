@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/fav-icon.png" type="image/x-icon">
-    <title>Inside Botcha - Categoria: Animação</title>
+    <link rel="shortcut icon" href="./img/fav-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./src/css/navbar.css">
     <link rel="stylesheet" href="./src/css/categorias.css">
+    <title>Inside Botcha - pesquisado</title>
 </head>
 <body>
     <nav class="navBar">
         <div class="nome-logo">
-            <img id="pagina-principal" src="./img/fav-icon.png" alt="Logo do site">
+            <a href="#"><img id="pagina-principal" src="./img/fav-icon.png" alt="Logo do site"></a>
             <h1>Inside Botcha</h1>
+        </div>
+        <div class="pesquisa">
+            <input type="text" id="searchInput" class="input" placeholder="Digite o nome do jogo">
+            <img class="botao" id="searchButton" src="./img/lupa.png" alt="lupa">
         </div>
         <div class="infos">
             <!-- se colocar algo aqui fica do lado do perfil certinho-->
@@ -24,14 +28,13 @@
         </div>
     </nav>
     <div class="container" id="container">
-        <!-- <div class="card">
-            <img src="./img/the-game-awards-jogo-do-ano-goty.jpg" alt="">
-            <h3>Nome do jogo</h3>
-            <h4>Preço:</h4>
-        </div> -->
-        <script src="./src/js/categorias.js"></script>
-        <script>
-            getPopularGamesByCategory('Animacao');
-        </script>
+        <div class="results" id="results">
+            
+        </div>
+    </div>
+    
+
+    <script src="./src/js/retornoPesquisa.js"></script>
+    <script src="./src/js/infosUsuario.js"></script>
 </body>
 </html>

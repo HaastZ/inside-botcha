@@ -5,6 +5,13 @@
 - npm install my sql
 - npm install nodemon
 
+### Iniciar o projeto
+
+- Escreva "nodemon server.js" no terminal
+
+# Instrução a seguir para conseguir visualizar a api da Steam rodando no projeto
+- Para conseguir acessar a api da steam pelo projeto, é preciso conseder uma permissão para uso temporário para a demo do CORS no console do servidor ou nesse link: https://cors-anywhere.herokuapp.com/corsdemo
+
 # Tecnologias Utilizadas
 - HTML
 - CSS

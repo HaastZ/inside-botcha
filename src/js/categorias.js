@@ -1,35 +1,7 @@
 /*
-Este código serve para pegar os jogos da categoria Aventura da API da Steam
+Este código serve para pegar os jogos da categoria passada por parametro e inserir todos os jogos populares da categoria no HTML
 */
 
-function getPopularGamesByCategory(category) {
- 
-}
-const elementoNomeDeUsuario = document.getElementById('usuario');
-const URLpaginaPerfil = document.getElementById('pagina-perfil');
-const URLpaginaPrincipal = document.getElementById('pagina-principal');
-const caminho = window.location.search;
-
-// Extrair o nome de usuário do caminho
-const partesDoCaminho = caminho.split('/');
-const nomeDeUsuario = partesDoCaminho[1];
-const email = partesDoCaminho[2];
-const senha = partesDoCaminho[3];
-const id = partesDoCaminho[4];
-// Exibir o nome de usuário na página
-
-elementoNomeDeUsuario.innerHTML = `
-    <h4>${nomeDeUsuario}</h4>
-`
-URLpaginaPerfil.addEventListener('click', ()=>{
-    const urlDestino = `./perfil.html?/${nomeDeUsuario}/${email}/${senha}/${id}`;
-    window.location = urlDestino;
-})
-
-URLpaginaPrincipal.addEventListener('click', ()=>{
-  const urlDestino = `./home.html?/${nomeDeUsuario}/${email}/${senha}/${id}`;
-  window.location = urlDestino;
-})
 
 // Colocar o código da api da steam aqui em baixo
 
@@ -50,7 +22,7 @@ const categories = {
 const container = document.getElementById('container');
 const imagesByCategory = {};
 
-// Função para obter todos os jogos populares da categoria Aventura
+// Função para obter todos os jogos populares da categoria passada por parametro
 function getPopularGamesByCategory(categoria) {
   const category = categoria;
 

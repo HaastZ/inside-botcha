@@ -47,3 +47,27 @@
     height: 60px;
     cursor: pointer;
 }
+
+.navBar .pesquisa .input {
+    height: 30px;
+    width: 300px;
+}
+
+.navBar .pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navBar .pesquisa .botao {
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgba(0, 67, 143, 0.753);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.navBar .botao:hover {
+    background-color: rgba(0, 119, 255, 0.692);
+}

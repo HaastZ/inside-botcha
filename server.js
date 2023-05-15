@@ -49,6 +49,10 @@ app.get('/img/olho-fechado.png', (req, res) => {
   res.sendFile(__dirname + '/img/olho-fechado.png');
 });
 
+app.get('/img/lupa.png', (req, res) => {
+  res.sendFile(__dirname + '/img/lupa.png');
+});
+
 app.get('/index.html', (req, res) => {
    res.sendFile(__dirname + '/index.html');
 });
@@ -93,8 +97,12 @@ app.get('/Estrategia.html', (req, res) => {
   res.sendFile(__dirname + '/Estrategia.html');
 });
 
-app.get('/Animacao.html', (req, res) => {
-  res.sendFile(__dirname + '/Animacao.html');
+app.get('/Casual.html', (req, res) => {
+  res.sendFile(__dirname + '/Casual.html');
+});
+
+app.get('/pesquisado.html', (req, res) => {
+  res.sendFile(__dirname + '/pesquisado.html');
 });
 
 app.get('/src/css/style.css', (req, res) => {
@@ -136,6 +144,19 @@ app.get('/src/js/perfil.js', (req, res) => {
 app.get('/src/js/categorias.js', (req, res) => {
   res.sendFile(__dirname + '/src/js/categorias.js');
 });
+
+app.get('/src/js/infosUsuario.js', (req, res) => {
+  res.sendFile(__dirname + '/src/js/infosUsuario.js');
+});
+
+app.get('/src/js/pesquisa.js', (req, res) => {
+  res.sendFile(__dirname + '/src/js/pesquisa.js');
+});
+
+app.get('/src/js/retornoPesquisa.js', (req, res) => {
+  res.sendFile(__dirname + '/src/js/retornoPesquisa.js');
+});
+
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
