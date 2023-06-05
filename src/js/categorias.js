@@ -2,9 +2,6 @@
 Este código serve para pegar os jogos da categoria passada por parametro e inserir todos os jogos populares da categoria no HTML
 */
 
-
-// Colocar o código da api da steam aqui em baixo
-
 const url = 'https://api.steampowered.com/ISteamApps/GetAppList/v2/';
 const apiKey = '14549840C8937416FF2DC4B3C3CAF9C6';
 const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -23,7 +20,7 @@ const container = document.getElementById('container');
 const imagesByCategory = {};
 
 // Função para obter todos os jogos populares da categoria passada por parametro
-function getPopularGamesByCategory(categoria) {
+function getPopularGamesByCategory(categoria, ordenarPor) {
   const category = categoria;
 
   fetch(`${proxyUrl}${url}?key=${apiKey}`)
@@ -44,6 +41,19 @@ function getPopularGamesByCategory(categoria) {
 
       const appIds = imagesByCategory[category];
       const sortedApps = appIds.sort((a, b) => b.playtime_forever - a.playtime_forever);
+
+      // Ordenar os aplicativos com base no tipo de ordenação selecionado
+      if (ordenarPor === 'maioresPrecos') {
+        sortedApps.sort((a, b) =>{
+          return b - a;
+        });
+      } else if (ordenarPor === 'menoresPrecos') {
+        sortedApps.sort((a, b) => {
+          return a - b;
+        });
+
+        
+      }
 
       sortedApps.forEach(app => {
         const appID = app.appid;
@@ -69,7 +79,7 @@ function getPopularGamesByCategory(categoria) {
     
               container.innerHTML += `
                 <div class="card">
-                    <img src="${imageUrl}" alt="">
+                    <a href="#"><img src="${imageUrl}" alt=""></a>
                     <h3>${appData.name}</h3>
                     <h4>Preço: ${price}</h4>
                 </div>
@@ -81,4 +91,3 @@ function getPopularGamesByCategory(categoria) {
     })
     .catch(error => console.error(error));
 }
-

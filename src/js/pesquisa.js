@@ -13,52 +13,64 @@ searchButton.addEventListener('click', () => {
       const games = data.applist.apps;
       const searchResults = [];
 
+      const fetchPromises = [];
+
+      let delay = 0; // Inicializa o atraso como 0
+
       games.forEach(game => {
         const appId = game.appid;
         const gameName = game.name.toLowerCase();
 
         if (gameName.includes(searchTerm.toLowerCase())) {
-          searchResults.push(
-            fetch(`${proxyUrl}https://store.steampowered.com/api/appdetails?appids=${appId}&key=${apiKey}`)
-              .then(response => response.json())
-              .then(data => {
-                const appData = data[appId].data;
+          const fetchPromise = new Promise(resolve => {
+            setTimeout(() => {
+              fetch(`${proxyUrl}https://store.steampowered.com/api/appdetails?appids=${appId}&key=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                  const appData = data[appId].data;
 
-                if (appData.type === 'game') {
-                  let imageUrl = appData.header_image || 'placeholder_image.jpg';
+                  if (appData.type === 'game') {
+                    let imageUrl = appData.header_image || 'placeholder_image.jpg';
 
-                  // Verifica se a imagem é nula
-                  if (imageUrl !== 'placeholder_image.jpg') {
-                    let price = '';
+                    // Verifica se a imagem é nula
+                    if (imageUrl !== 'placeholder_image.jpg') {
+                      let price = '';
 
-                    if (appData.price_overview) {
-                      price = appData.price_overview.final_formatted || 'Preço não disponível';
-                      price = price.replace('\n', '');
-                      price = parseFloat(price.replace(/[^0-9.-]+/g, "")) * 5.0; // Conversão de dólares para reais
-                      price = `R$ ${price.toFixed(2)}`;
+                      if (appData.price_overview) {
+                        price = appData.price_overview.final_formatted || 'Preço não disponível';
+                        price = price.replace('\n', '');
+                        price = parseFloat(price.replace(/[^0-9.-]+/g, "")) * 5.0; // Conversão de dólares para reais
+                        price = `R$ ${price.toFixed(2)}`;
+                      } else {
+                        price = 'Gratuito';
+                      }
+
+                      resolve({
+                        name: appData.name,
+                        image: imageUrl,
+                        price: price
+                      });
                     } else {
-                      price = 'Gratuito';
+                      resolve(null);
                     }
-
-                    return {
-                      name: appData.name,
-                      image: imageUrl,
-                      price: price
-                    };
+                  } else {
+                    resolve(null);
                   }
-                }
+                })
+                .catch(error => {
+                  console.error(error);
+                  resolve(null);
+                });
+            }, delay); // Define o atraso para cada requisição
 
-                return null;
-              })
-              .catch(error => {
-                console.error(error);
-                return null;
-              })
-          );
+            delay += 100; // Incrementa o atraso para a próxima requisição
+          });
+
+          fetchPromises.push(fetchPromise);
         }
       });
 
-      Promise.all(searchResults).then(results => {
+      Promise.all(fetchPromises).then(results => {
         const filteredResults = results.filter(result => result !== null);
 
         if (filteredResults.length > 0) {

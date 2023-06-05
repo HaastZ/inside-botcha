@@ -77,3 +77,9 @@ body {
 .container-perfil .sair-da-conta .botao-sair:hover {
     background-color: rgba(1, 88, 187, 0.3);
 }
+
+.categorias-favoritas h1 {
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
