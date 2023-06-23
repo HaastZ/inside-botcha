@@ -1,12 +1,13 @@
 const searchButton = document.getElementById('searchButton');
 const searchInput = document.getElementById('searchInput');
 
-searchButton.addEventListener('click', () => {
+const performSearch = () => {
   const searchTerm = searchInput.value.trim();
   if (searchTerm === '') {
     return;
   }
 
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   fetch(`${proxyUrl}https://api.steampowered.com/ISteamApps/GetAppList/v2/`)
     .then(response => response.json())
     .then(data => {
@@ -15,7 +16,7 @@ searchButton.addEventListener('click', () => {
 
       const fetchPromises = [];
 
-      let delay = 0; // Inicializa o atraso como 0
+      let delay = 0;
 
       games.forEach(game => {
         const appId = game.appid;
@@ -24,32 +25,37 @@ searchButton.addEventListener('click', () => {
         if (gameName.includes(searchTerm.toLowerCase())) {
           const fetchPromise = new Promise(resolve => {
             setTimeout(() => {
-              fetch(`${proxyUrl}https://store.steampowered.com/api/appdetails?appids=${appId}&key=${apiKey}`)
+              fetch(`${proxyUrl}https://store.steampowered.com/api/appdetails?appids=${appId}&key=14549840C8937416FF2DC4B3C3CAF9C6`)
                 .then(response => response.json())
                 .then(data => {
-                  const appData = data[appId].data;
+                  const appData = Object.values(data)[0];
 
-                  if (appData.type === 'game') {
-                    let imageUrl = appData.header_image || 'placeholder_image.jpg';
+                  if (appData && appData.success) {
+                    const gameData = appData.data;
 
-                    // Verifica se a imagem é nula
-                    if (imageUrl !== 'placeholder_image.jpg') {
-                      let price = '';
+                    if (gameData.type === 'game') {
+                      let imageUrl = gameData.header_image || 'placeholder_image.jpg';
 
-                      if (appData.price_overview) {
-                        price = appData.price_overview.final_formatted || 'Preço não disponível';
-                        price = price.replace('\n', '');
-                        price = parseFloat(price.replace(/[^0-9.-]+/g, "")) * 5.0; // Conversão de dólares para reais
-                        price = `R$ ${price.toFixed(2)}`;
+                      if (imageUrl !== 'placeholder_image.jpg') {
+                        let price = '';
+
+                        if (gameData.price_overview) {
+                          price = gameData.price_overview.final_formatted || 'Preço não disponível';
+                          price = price.replace('\n', '');
+                          price = parseFloat(price.replace(/[^0-9.-]+/g, '')) * 5.0;
+                          price = `R$ ${price.toFixed(2)}`;
+                        } else {
+                          price = 'Gratuito';
+                        }
+
+                        resolve({
+                          name: gameData.name,
+                          image: imageUrl,
+                          price: price
+                        });
                       } else {
-                        price = 'Gratuito';
+                        resolve(null);
                       }
-
-                      resolve({
-                        name: appData.name,
-                        image: imageUrl,
-                        price: price
-                      });
                     } else {
                       resolve(null);
                     }
@@ -61,9 +67,9 @@ searchButton.addEventListener('click', () => {
                   console.error(error);
                   resolve(null);
                 });
-            }, delay); // Define o atraso para cada requisição
+            }, delay);
 
-            delay += 100; // Incrementa o atraso para a próxima requisição
+            delay += 100;
           });
 
           fetchPromises.push(fetchPromise);
@@ -82,4 +88,6 @@ searchButton.addEventListener('click', () => {
       });
     })
     .catch(error => console.error(error));
-});
+};
+
+searchButton.addEventListener('click', performSearch);

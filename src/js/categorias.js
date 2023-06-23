@@ -49,7 +49,7 @@ function getPopularGamesByCategory(categoria, ordenarPor) {
             if (ordenarPor === 'maioresPrecos') {
               price = `R$ ${getRandomPrice(50, 200)}`;
             } else if (ordenarPor === 'menoresPrecos') {
-              price = `R$ ${getRandomPrice(1, 10)}`;
+              price = `R$ ${getRandomPrice(1, 40)}`;
             } else {
               if (appData.price_overview) {
                 price = appData.price_overview.final_formatted || 'Preço não disponível';

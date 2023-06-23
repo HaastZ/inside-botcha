@@ -24,16 +24,16 @@
         </div>
     </nav>
     <div class="filtrar-jogos">
-        <label for="">Ordenar jogos por:</label>
+        <label for="">Filtrar jogos por:</label>
             <select name="filtrar" id="filtrar">
                 <option value="">Todos os jogos</option>
-                <option value="maioresPrecos">Maiores preços</option>
-                <option value="menoresPrecos">Menores preços</option>
+                <option value="maioresPrecos">Maiores preços - 50 a 200</option>
+                <option value="menoresPrecos">Menores preços - 1 a 10</option>
             </select>
 
-            <div class="buscar-jogos">
+            <!-- <div class="buscar-jogos">
                 <p>Buscar jogos entre:</p><input placeholder="Mínimo" class="input-buscar-jogos" type="text"> até: <input placeholder="Máximo" class="input-buscar-jogos" type="text">
-            </div>
+            </div> -->
     </div>
     <div class="container" id="container">
         <!-- <div class="card">
@@ -57,10 +57,10 @@
 
 
             // Obter o valor selecionado de ordenação
-            const ordenarPor = document.getElementById('filtrar').value;
+            const FiltrarPor = document.getElementById('filtrar').value;
 
             // Chamar a função para obter os jogos populares com base na categoria e no tipo de ordenação selecionados
-            getPopularGamesByCategory('Corrida', ordenarPor);
+            getPopularGamesByCategory('Corrida', FiltrarPor);
             }
 
             // Configurar os eventos de mudança de seleção
