@@ -1,5 +1,7 @@
 ![nome-site - Copia](https://github.com/HaastZ/inside-botcha/assets/102103337/519c466e-28e8-49fa-aff0-aafc771945b6)
 
+* Site de recomendação de jogos
+
 * Trabalho feito durante o 3° Período da faculdade de ADS
 
 * Visualização do projeto: https://inside-botcha.vercel.app/home.html
