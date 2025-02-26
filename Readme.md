@@ -4,7 +4,7 @@
 
 * Trabalho feito durante o 3° Período da faculdade de ADS
 
-* Visualização do projeto: https://inside-botcha.vercel.app/home.html
+* Visualização do projeto: [clique aqui](https://inside-botcha-r6kym4zz4-haastzs-projects.vercel.app/)
 # Depêndencias para rodar o projeto na sua máquina
 
 - npm init
